@@ -1,9 +1,15 @@
 <?php
 // reports.php – Key programme reports & exports
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: login.php"); exit(); }
-require 'includes/config.php';
-include 'includes/header.php';
+if (!isset($_SESSION['username'])) { 
+    header("Location: login.php"); 
+    exit(); 
+}
+
+require 'config.php';
+require 'auth.php';
+require 'role_guard.php';
+include 'header.php';
 
 /* Short helper for counts */
 function quickCount($conn,$sql){
@@ -189,6 +195,6 @@ $dueRepeat = mysqli_query($conn,"
  </div>
 </main>
 <?php
-include 'includes/footer.php';
+include 'footer.php';
 mysqli_close($conn);
 ?>

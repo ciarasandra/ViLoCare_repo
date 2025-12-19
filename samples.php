@@ -1,9 +1,15 @@
 <?php
 // samples.php – Manage sample collection & rejections
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: login.php"); exit(); }
-require 'includes/config.php';
-include 'includes/header.php';
+if (!isset($_SESSION['username'])) { 
+  header("Location: login.php"); 
+  exit(); 
+}
+
+require 'config.php';
+require 'auth.php';
+require 'role_guard.php';
+include 'header.php';
 
 /* Filters */
 $filter_status = isset($_GET['status']) ? $_GET['status'] : '';
@@ -95,6 +101,6 @@ $res = mysqli_query($conn,$sql);
  </div>
 </main>
 <?php
-include 'includes/footer.php';
+include 'footer.php';
 mysqli_close($conn);
 ?>

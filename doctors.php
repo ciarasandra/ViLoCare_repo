@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-include 'includes/header.php';
+include 'header.php';
 require 'config.php';
 
 // Fetch doctors with requesting clinician names if applicable

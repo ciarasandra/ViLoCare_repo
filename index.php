@@ -1,13 +1,10 @@
 <?php
+session_start();
 // index.php  –  ViLoCare Dashboard (updated with action-button links)
 
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-require 'includes/config.php';
-include 'includes/header.php';
+require 'auth.php';
+require 'config.php';
+include 'header.php';
 
 /* ------------------------------------------------------------------
  * 1. Collect filter values
@@ -265,6 +262,6 @@ $totalDueRepeatVL = mysqli_fetch_assoc(mysqli_query($conn,$sqlDueRepeat))['total
   </div>
 </main>
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'footer.php'; ?>
 </body>
 </html>

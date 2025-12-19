@@ -1,8 +1,13 @@
 <?php
 // add_viral_load.php – create new VL result
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: login.php"); exit(); }
+if (!isset($_SESSION['username'])) { 
+    header("Location: login.php"); 
+    exit(); 
+}
 
+require 'includes/auth.php';
+require 'includes/role_guard.php';
 require 'includes/config.php';
 include 'includes/header.php';
 

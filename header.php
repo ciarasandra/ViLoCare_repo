@@ -16,7 +16,7 @@
 <body>
 <div class="wrapper">
     <!-- sidebar -->
-    <?php include 'includes/sidebar.php'; ?>
+    <?php include 'sidebar.php'; ?>
     <div class="main">
         <!-- Top navbar -->
         <nav class="navbar navbar-expand navbar-light navbar-bg">

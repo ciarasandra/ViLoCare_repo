@@ -23,12 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($row = mysqli_fetch_assoc($result)) {
                 // Compare plaintext password (since your DB stores plain text)
                 if ($password === $row['password']) {
-                    $_SESSION['username'] = $row['username'];
-                    $_SESSION['role'] = $row['role'];
-                    mysqli_stmt_close($stmt);
-                    mysqli_close($conn);
-                    header("Location: index.php");
-                    exit();
+                  $_SESSION['logged_in'] = true;
+                  $_SESSION['username'] = $row['username'];
+                  $_SESSION['role'] = $row['role'];
+                  mysqli_stmt_close($stmt);
+                  mysqli_close($conn);
+                  header("Location: index.php");
+                  exit();
                 } else {
                     $error = "Invalid credentials.";
                 }
@@ -41,7 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         mysqli_close($conn);
     }
+  
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

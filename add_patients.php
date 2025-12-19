@@ -5,6 +5,8 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
+require 'includes/auth.php';
+require 'includes/role_guard.php';
 require 'includes/config.php';
 include 'includes/header.php';
 

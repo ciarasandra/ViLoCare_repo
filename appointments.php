@@ -6,8 +6,10 @@ if (!isset($_SESSION['username'])){
     header("Location: login.php");
     exit();
 }
-require 'includes/config.php';
-include 'includes/header.php';
+require 'config.php';
+require 'auth.php';
+require 'role_guard.php';
+include 'header.php';
 
 //fetch all applointments
 $sql = "SELECT appointmentId, patientinfo_id, doctorName, appointmentDate, appointmentTime, status FROM schedule ORDER BY appointmentDate DESC, appointmentTime DESC";
@@ -88,6 +90,6 @@ $result = mysqli_query($conn, $sql);
 </main>
 
 <?php
-include 'includes/footer.php';
+include 'footer.php';
 mysqli_close($conn)
 ?>

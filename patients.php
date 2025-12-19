@@ -1,14 +1,12 @@
 <?php
+session_start();
+
 // patients.php – Patient registry & import from VLSM
 
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-
-require 'includes/config.php';
-include 'includes/header.php';
+require 'config.php';
+require 'auth.php';
+require 'role_guard.php';
+include 'header.php';
 
 /* ------------------------------------------------------------------
  * Fetch all patients (core columns used in other pages)
@@ -108,6 +106,6 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
 </main>
 
 <?php
-include 'includes/footer.php';
+include 'footer.php';
 mysqli_close($conn);
 ?>
