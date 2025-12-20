@@ -6,6 +6,8 @@ if (!isset($_SESSION['username'])) {
 }
 
 require 'config.php';
+require 'auth.php';
+require 'role_guard';
 include 'header.php';
 
 $success = "";
@@ -234,6 +236,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </main>
 
 <?php
-include 'includes/footer.php';
+include 'footer.php';
 
 ?>
+
