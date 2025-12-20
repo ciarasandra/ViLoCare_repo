@@ -5,9 +5,8 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-require includes/auth.php;
-require 'includes/config.php';
-include 'includes/header.php';
+require 'config.php';
+include 'header.php';
 
 $success = "";
 $error = "";
@@ -236,4 +235,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <?php
 include 'includes/footer.php';
+
 ?>
