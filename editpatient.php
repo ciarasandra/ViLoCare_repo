@@ -5,8 +5,9 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-require 'includes/config.php';
-include 'includes/header.php';
+require 'config.php';
+
+include 'header.php';
 
 if (!isset($_GET['id'])) {
     echo "<div class='alert alert-danger'>No patient selected.</div>";
@@ -90,8 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Date of Birth</label>
-                        <input type="date" name="dateOfBirth" class="form-control" value="<?php echo htmlspecialchars($patient['dateOfBirth']); ?>" required>
+                        <label class="form-label">Age</label>
+                        <input type="text" name="age" class="form-control" value="<?php echo htmlspecialchars($patient['Age']); ?>" required>
                     </div>
 
                     <div class="mb-3">
@@ -122,5 +123,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </main>
 
 <?php
-include 'includes/footer.php';
+include 'footer.php';
 ?>
