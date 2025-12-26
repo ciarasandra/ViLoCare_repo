@@ -14,7 +14,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 //Pages each role can access 
 $permissions = ['Administrator' => ['*'], 
 'Clinician' => ['*'], 
-'Data Officer' =>['patients.php', 'appointments.php',  'reports.php'],
+'Data Officer' =>['patients.php', 'add_patient.php', 'appointments.php',  'reports.php'],
 'Lab Technician' =>['viral_load.php', 'samples.php', 'reports.php']
 ];
 
