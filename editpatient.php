@@ -6,7 +6,8 @@ if (!isset($_SESSION['username'])) {
 }
 
 require 'config.php';
-
+require 'auth.php';
+require 'role_guard.php';
 include 'header.php';
 
 if (!isset($_GET['id'])) {
@@ -92,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="mb-3">
                         <label class="form-label">Age</label>
-                        <input type="text" name="age" class="form-control" value="<?php echo htmlspecialchars($patient['Age']); ?>" required>
+                        <input type="text" name="age" class="form-control" value="<?php echo htmlspecialchars($patient['age']); ?>" required>
                     </div>
 
                     <div class="mb-3">

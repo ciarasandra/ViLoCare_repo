@@ -17,9 +17,17 @@ $sql = "
         p.art_number,
         CONCAT(p.first_name,' ',p.last_name) AS full_name,
         p.sex,
-        p.dob,
         p.phone,
-        p.address
+        p.address,
+        p.is_pregnant,
+        p.is_breastfeeding,
+        p.arv_adherence,
+        p.funding_source,
+        p.facility_id,
+        p.state_id,
+        p.county_id,
+        p.age,
+        P.notes
     FROM patients p
     ORDER BY p.art_number ASC
 ";
@@ -42,7 +50,7 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
   <?php endif; ?>
 
   <div class="row">
-   <div class="col-12">
+   <div class="col-14">
      <div class="card">
        <div class="card-header d-flex justify-content-between align-items-center">
          <h5 class="card-title mb-0">Patient Records</h5>
@@ -62,14 +70,22 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
          <table class="table table-striped table-hover align-middle">
           <thead>
             <tr>
-                <th>#</th>
-                <th>ART&nbsp;Number</th>
-                <th>Full&nbsp;Name</th>
-                <th>Sex</th>
-                <th>Date&nbsp;of&nbsp;Birth</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th style="width:120px;">Actions</th>
+              <th>#</th>
+              <th>ART&nbsp;Number</th>
+              <th>Full&nbsp;Name</th>
+              <th>Sex</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Is&nbsp;Pregnant</th>
+              <th>Is&nbsp;Breastfeeding</th>
+              <th>Arv&nbsp;Adherence</th>
+              <th>Funding&nbsp;Source</th>
+              <th>Facility&nbsp;Id</th>
+              <th>State&nbsp;Id</th>
+              <th>County&nbsp;Id</th>
+              <th>Age</th>
+              <th>NOTES</th>
+              <th style="width:120px;">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -78,18 +94,25 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
                 $n = 1;
                 while ($row = mysqli_fetch_assoc($result)): ?>
                     <tr>
-                       <td><?= $n++; ?></td>
-                       <td><?= htmlspecialchars($row['art_number']); ?></td>
-                       <td><?= htmlspecialchars($row['full_name']);  ?></td>
-                       <td><?= htmlspecialchars($row['sex']);        ?></td>
-                       <td><?= htmlspecialchars($row['dob']);        ?></td>
-                       <td><?= htmlspecialchars($row['phone']);      ?></td>
-                       <td><?= htmlspecialchars($row['address']);    ?></td>
-                       <td>
-                           <a href="editpatient.php?id=<?= $row['patient_id']; ?>" class="btn btn-sm btn-outline-info">Edit</a>
-                           <a href="delete_patient.php?id=<?= $row['patient_id']; ?>" class="btn btn-sm btn-outline-danger"
-                              onclick="return confirm('Delete this patient?');">Delete</a>
-                       </td>
+                      <td><?= $n++; ?></td>
+                      <td><?= htmlspecialchars($row['art_number']); ?></td>
+                      <td><?= htmlspecialchars($row['full_name']);  ?></td>
+                      <td><?= htmlspecialchars($row['sex']);        ?></td>
+                      <td><?= htmlspecialchars($row['phone']);      ?></td>
+                      <td><?= htmlspecialchars($row['address']);    ?></td>
+                      <td><?= htmlspecialchars($row['is_pregnant']);    ?></td>
+                      <td><?= htmlspecialchars($row['is_breastfeeding']);    ?></td>
+                      <td><?= htmlspecialchars($row['arv_adherence']);    ?></td>
+                      <td><?= htmlspecialchars($row['funding_source']);    ?></td>
+                      <td><?= htmlspecialchars($row['facility_id']);    ?></td>
+                      <td><?= htmlspecialchars($row['state_id']);    ?></td>
+                      <td><?= htmlspecialchars($row['county_id']);    ?></td>
+                      <td><?= htmlspecialchars($row['age']);    ?></td>
+                      <td><?= htmlspecialchars($row['notes']);    ?></td>
+                      <td>
+                        <a href="editpatient.php?id=<?= $row['patient_id']; ?>" class="btn btn-sm btn-outline-info">Edit</a>
+                        <a href="delete_patient.php?id=<?= $row['patient_id']; ?>" class="btn btn-sm btn-outline-danger"onclick="return confirm('Delete this patient?');">Delete</a>
+                      </td>
                     </tr>
             <?php endwhile;
             else: ?>

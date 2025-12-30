@@ -37,7 +37,6 @@ while ($row = mysqli_fetch_assoc($result)) {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fullName = mysqli_real_escape_string($conn, $_POST['fullName']);
     $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['dateOfBirth']);
     $age = mysqli_real_escape_string($conn, $_POST['age']);
     $contact = mysqli_real_escape_string($conn, $_POST['contact']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
@@ -63,12 +62,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Insert into database
     $sql = "INSERT INTO patient_info (
-        fullName, gender, dateOfBirth, age, contact, address, art_number, art_start_date, current_regimen,
+        fullName, gender, age, contact, address, art_number, art_start_date, current_regimen,
         regimen_start_date, has_regimen_changed, regimen_change_date, is_pregnant, is_breastfeeding,
         arv_adherence, funding_source, implementing_partner, facility_id, county_id, state_id, sample_type,
         last_sample_collection_date, last_vl_result, last_vl_result_date, notes
     ) VALUES (
-        '$fullName', '$gender', '$dateOfBirth', '$age', '$contact', '$address', '$art_number', '$art_start_date', '$current_regimen',
+        '$fullName', '$gender', '$age', '$contact', '$address', '$art_number', '$art_start_date', '$current_regimen',
         '$regimen_start_date', '$has_regimen_changed', '$regimen_change_date', '$is_pregnant', '$is_breastfeeding',
         '$arv_adherence', '$funding_source', '$implementing_partner', '$facility_id', '$county_id', '$state_id', '$sample_type',
         '$last_sample_collection_date', '$last_vl_result', '$last_vl_result_date', '$notes'
@@ -106,10 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <option value="Female">Female</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label">Date of Birth</label>
-                        <input type="date" name="dateOfBirth" class="form-control" required>
-                    </div>
+                    
                     <div class="mb-3">
                         <label class="form-label">Age</label>
                         <input type="number" name="age" class="form-control" required>
