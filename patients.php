@@ -83,16 +83,27 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
                     <th>#</th>
                     <th>ART&nbsp;Number</th>
                     <th>Full&nbsp;Name</th>
-                    <th>Sex</th>
+                    <th>Gender</th>
                     <th>Contact</th>
                     <th>Address</th>
+                    <th>Art&nbsp;StartDate</th>
+                    <th>Current&nbsp;Regimen</th>
+                    <th>Regimen&nbsp;StartDate</th>
+                    <th>Has&nbsp;Regimen&nbsp;Changed</th>
+                    <th>Regimen&nbsp;ChangeDate</th>
                     <th>Is&nbsp;Pregnant</th>
                     <th>Is&nbsp;Breastfeeding</th>
                     <th>Arv&nbsp;Adherence</th>
                     <th>Funding&nbsp;Source</th>
+                    <th>Implementing&nbsp;Partner</th>
                     <th>Facility&nbsp;Id</th>
                     <th>State&nbsp;Id</th>
                     <th>County&nbsp;Id</th>
+                    <th>Sample&nbsp;Type</th>
+                    <th>Current&nbsp;Regimen</th>
+                    <th>Lastsample&nbsp;CollectionDate</th>
+                    <th>Last&nbsp;vlResult</th>
+                    <th>Lastvl&nbsp;resultDate</th>
                     <th>Age</th>
                     <th>NOTES</th>
                     <th style="width:120px;">Actions</th>
