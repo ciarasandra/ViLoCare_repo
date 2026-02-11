@@ -60,7 +60,7 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
     <?php endif; ?>
 
     <div class="row">
-      <div class="col-14">
+      <div class="col-28">
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="card-title mb-0">Patient Records</h5>
