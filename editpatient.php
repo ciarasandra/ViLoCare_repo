@@ -35,16 +35,18 @@ $error = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fullName = mysqli_real_escape_string($conn, $_POST['fullName']);
     $gender = mysqli_real_escape_string($conn, $_POST['gender']);
-    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['dateOfBirth']);
+    $Age = mysqli_real_escape_string($conn, $_POST['age']);
     $contact = mysqli_real_escape_string($conn, $_POST['contact']);
     $address = mysqli_real_escape_string($conn, $_POST['address']);
+    $art_number = mysqli_real_escape_string($conn, $_POST['art_number']);
 
     $updateSql = "UPDATE patient_info SET 
                     fullName = '$fullName',
                     gender = '$gender',
-                    dateOfBirth = '$dateOfBirth',
+                    age = '$Age',
                     contact = '$contact',
-                    address = '$address'
+                    address = '$address',
+                    art_number = '$art_number'
                   WHERE patientinfo_id = '$patientinfo_id'";
 
     if (mysqli_query($conn, $updateSql)) {
@@ -66,11 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <?php
         if (!empty($success)) {
-            echo '<div class="alert alert-success">'.htmlspecialchars($success).'</div>';
+            echo '<div class="alert alert-success">' . htmlspecialchars($success) . '</div>';
         }
 
         if (!empty($error)) {
-            echo '<div class="alert alert-danger">'.htmlspecialchars($error).'</div>';
+            echo '<div class="alert alert-danger">' . htmlspecialchars($error) . '</div>';
         }
         ?>
 
@@ -106,15 +108,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <textarea name="address" class="form-control" required><?php echo htmlspecialchars($patient['address']); ?></textarea>
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Art Number</label>
+                        <textarea name="art_number" class="form-control" required><?php echo htmlspecialchars($patient['art_number']); ?></textarea>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Update Patient</button>
                     <a href="patients.php" class="btn btn-secondary">Cancel</a>
 
                 </form>
                 <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        <?php if (!empty($success)){ ?>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        <?php if (!empty($success)) { ?>
                             document.querySelector("form").reset();
-                            <?php 
+                        <?php
                         } ?>
                     });
                 </script>
