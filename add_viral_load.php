@@ -6,10 +6,10 @@ if (!isset($_SESSION['username'])) {
     exit(); 
 }
 
-require 'includes/auth.php';
-require 'includes/role_guard.php';
-require 'includes/config.php';
-include 'includes/header.php';
+require 'auth.php';
+require 'role_guard.php';
+require 'config.php';
+include 'header.php';
 
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -97,4 +97,4 @@ $patients = mysqli_query($conn, "SELECT patient_id, art_number, CONCAT(first_nam
   </form>
  </div>
 </main>
-<?php include 'includes/footer.php'; ?>
+<?php include 'footer.php'; ?>
