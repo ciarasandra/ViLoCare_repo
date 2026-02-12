@@ -100,7 +100,6 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
                     <th>State&nbsp;Id</th>
                     <th>County&nbsp;Id</th>
                     <th>Sample&nbsp;Type</th>
-                    <th>Current&nbsp;Regimen</th>
                     <th>Lastsample&nbsp;CollectionDate</th>
                     <th>Last&nbsp;vlResult</th>
                     <th>Lastvl&nbsp;resultDate</th>
@@ -141,14 +140,14 @@ if (isset($_GET['imported']))  $flash = "VLSM data imported successfully!";
                         <td><?= htmlspecialchars($row['age']);    ?></td>
                         <td><?= htmlspecialchars($row['notes']);    ?></td>
                         <td>
-                          <a href="editpatient.php?id=<?= $row['patient_id']; ?>" class="btn btn-sm btn-outline-info">Edit</a>
-                          <a href="delete_patient.php?id=<?= $row['patient_id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this patient?');">Delete</a>
+                          <a href="editpatient.php?id=<?= $row['patientinfo_id']; ?>" class="btn btn-sm btn-outline-info">Edit</a>
+                          <a href="delete_patient.php?id=<?= $row['patientinfo_id']; ?>" class="btn btn-sm btn-outline-danger" onclick="return confirm('Delete this patient?');">Delete</a>
                         </td>
                       </tr>
                     <?php endwhile;
                   else: ?>
                     <tr>
-                      <td colspan="8" class="text-center text-muted">No patient records found.</td>
+                      <td colspan="27" class="text-center text-muted">No patient records found.</td>
                     </tr>
                   <?php endif; ?>
                 </tbody>
